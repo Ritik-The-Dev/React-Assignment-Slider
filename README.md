@@ -8,11 +8,6 @@ Clone the Repository
 
     git clone https://github.com/Ritik-The-Dev/React-Assignment-Slider
 
-Client Installation
-
-Navigate to the client directory
-
-    cd clientss
 
 Install the required packages
 
