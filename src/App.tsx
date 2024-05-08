@@ -177,7 +177,7 @@ export default function App() {
   };
 
   // Handler function for slider value change
-  const handleSliderChange = (event: any, newValue: any) => {
+  const handleSliderChange = (_event: any, newValue: any) => {
     setSliderValue(newValue);
   };
 
