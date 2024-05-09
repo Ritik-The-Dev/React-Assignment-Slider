@@ -1,4 +1,4 @@
-// App.js
+// App.ts
 
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
