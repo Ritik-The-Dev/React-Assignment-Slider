@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import StyledSlider from "./components/Slider";
 import { StyledSwitch } from "./components/Switch";
+import { motion } from "framer-motion";
 
 export default function App() {
   // State variables for slider value and auto top-up setting
@@ -189,9 +190,21 @@ export default function App() {
   return (
     <div className="bg-black w-screen p-3 h-screen flex items-center justify-center overflow-hidden">
       <div className="flex bg-white flex-col items-start p-10 justify-center max-w-[850px] rounded-2xl">
-        <div className="flex mb-3 items-center justify-center gap-4">
-          <Typography variant="h6" component="h1" 
-          style={{ fontWeight: "550",whiteSpace: "nowrap" }}>
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            stiffness: 300,
+            damping: 15,
+            duration: 1,
+          }}
+          className="flex mb-3 items-center justify-center gap-4"
+        >
+          <Typography
+            variant="h6"
+            component="h1"
+            style={{ fontWeight: "550", whiteSpace: "nowrap" }}
+          >
             Setup Auto Top-up
           </Typography>
           {/* Styled switch component */}
@@ -200,9 +213,23 @@ export default function App() {
             checked={autoTopUp}
             onChange={handleSwitchChange}
           />
-        </div>
+        </motion.div>
         {/* Information about auto purchase */}
-        <div className={`${autoTopUp ? "flex flex-col" : "hidden"}`}>
+        <motion.div
+          initial={{ y: autoTopUp ? 0 : -50, opacity: autoTopUp ? 1 : 0 }}
+          animate={{ y: autoTopUp ? 0 : -50, opacity: autoTopUp ? 1 : 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: autoTopUp ? 15 : 30, // Adjust damping based on button state
+            duration: autoTopUp ? 0.5 : 0.8, // Adjust duration based on button state
+          }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            visibility: autoTopUp ? "visible" : "hidden",
+          }}
+        >
           <Typography className="text-[#939393]">
             Once the credit goes below a minimum thresholds
             <span className="text-[#9847FF] font-bold"> 50</span>, we will
@@ -217,18 +244,18 @@ export default function App() {
           </Typography>
           {/* Custom styled slider component */}
           <div className="lg:pr-[4rem] md:pr-[4rem]">
-          <StyledSlider
-            className="mt-8"
-            value={sliderValue}
-            onChange={handleSliderChange}
-            max={30}
-            min={5}
-            step={null}
-            marks={marks}
-            valueLabelDisplay="auto"
-            aria-labelledby="range-slider"
+            <StyledSlider
+              className="mt-8"
+              value={sliderValue}
+              onChange={handleSliderChange}
+              max={30}
+              min={5}
+              step={null}
+              marks={marks}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
             />
-            </div>
+          </div>
           {/* Confirm auto-purchase button */}
           <Button
             onClick={() => {
@@ -250,7 +277,7 @@ export default function App() {
           >
             Confirm auto-purchase
           </Button>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
