@@ -196,7 +196,7 @@ export default function App() {
           transition={{
             stiffness: 300,
             damping: 15,
-            duration: 1,
+            duration: 0.5,
           }}
           className="flex mb-3 items-center justify-center gap-4"
         >
