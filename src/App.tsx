@@ -188,9 +188,10 @@ export default function App() {
 
   return (
     <div className="bg-black w-screen p-3 h-screen flex items-center justify-center overflow-hidden">
-      <div className="flex bg-white flex-col items-start p-10 px-[4.5rem] justify-center max-w-[850px] rounded-2xl">
+      <div className="flex bg-white flex-col items-start p-10 justify-center max-w-[850px] rounded-2xl">
         <div className="flex mb-3 items-center justify-center gap-4">
-          <Typography variant="h6" component="h1" style={{ fontWeight: "550" }}>
+          <Typography variant="h6" component="h1" 
+          style={{ fontWeight: "550",whiteSpace: "nowrap" }}>
             Setup Auto Top-up
           </Typography>
           {/* Styled switch component */}
@@ -209,12 +210,13 @@ export default function App() {
             <span className="text-[#9847FF] font-bold">
               {getCredit(sliderValue)}
             </span>{" "}
-            credits and them to your account.{" "}
+            credits and add them to your account.{" "}
             <span className="text-[#939393] underline font-bold cursor-pointer">
               Learn more
             </span>
           </Typography>
           {/* Custom styled slider component */}
+          <div className="lg:pr-[4rem] md:pr-[4rem]">
           <StyledSlider
             className="mt-8"
             value={sliderValue}
@@ -225,7 +227,8 @@ export default function App() {
             marks={marks}
             valueLabelDisplay="auto"
             aria-labelledby="range-slider"
-          />
+            />
+            </div>
           {/* Confirm auto-purchase button */}
           <Button
             onClick={() => {
@@ -238,11 +241,11 @@ export default function App() {
               marginTop: "3rem",
               backgroundColor: "#9F54FF",
               textTransform: "none",
-              padding: 10,
+              padding: 8,
               width: "15rem",
               fontWeight: "600",
-              fontSize: "1.05rem",
-              borderRadius: "0.75rem",
+              fontSize: "0.85srem",
+              borderRadius: "0.5rem",
             }}
           >
             Confirm auto-purchase

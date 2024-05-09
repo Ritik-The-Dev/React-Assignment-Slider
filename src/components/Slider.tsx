@@ -27,7 +27,7 @@ export const StyledSlider = styled(Slider)<SliderProps>(({ theme }) => ({
     fontSize: "0.50rem", // Set the font size of the mark label
     textAlign: "center", // Set the text alignment of the mark label
     whiteSpace: "nowrap", // Prevent wrapping of text
-    marginLeft:'0.2rem' // Adjust left margin of mark label
+    marginLeft:'0.5rem' // Adjust left margin of mark label
   },
   "& .MuiSlider-markLabel[data-index='0']": {
     transform: "translateX(-50%)", // Translate the first mark label to the left
