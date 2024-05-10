@@ -20,11 +20,17 @@ export default function App() {
     {
       value: 5,
       label: (
-        <Typography variant="body2">
-          <span className=" font-extrabold text-black">$5</span> <br />
+        <Typography component={"p"} variant="body2">
+          <span
+            className=" 
+         font-bold text-base text-black"
+          >
+            $5
+          </span>{" "}
+          <br />
           <span
             className={`  ${
-              windowWidth > 750 && "font-semibold ml-12"
+              windowWidth > 750 && " font-medium text-base ml-14"
             } text-[#939393] break-words`}
           >
             500{" "}
@@ -44,10 +50,10 @@ export default function App() {
       value: 10,
       label: (
         <Typography variant="body2">
-          <span className=" font-extrabold text-black">$10</span> <br />
+          <span className="font-bold text-base text-black">$10</span> <br />
           <span
             className={`  ${
-              windowWidth > 750 && "font-semibold ml-12"
+              windowWidth > 750 && "font-medium text-base ml-14"
             } text-[#939393] break-words`}
           >
             1200{" "}
@@ -67,10 +73,10 @@ export default function App() {
       value: 15,
       label: (
         <Typography variant="body2">
-          <span className=" font-extrabold text-black">$15</span> <br />
+          <span className="font-bold text-base text-black">$15</span> <br />
           <span
             className={`  ${
-              windowWidth > 750 && "font-semibold ml-12"
+              windowWidth > 750 && "font-medium text-base ml-14"
             } text-[#939393] break-words`}
           >
             1700{" "}
@@ -90,10 +96,10 @@ export default function App() {
       value: 20,
       label: (
         <Typography variant="body2">
-          <span className=" font-extrabold text-black">$20</span> <br />
+          <span className="font-bold text-base text-black">$20</span> <br />
           <span
             className={`  ${
-              windowWidth > 750 && "font-semibold ml-12"
+              windowWidth > 750 && "font-medium text-base ml-14"
             } text-[#939393] break-words`}
           >
             2500{" "}
@@ -113,10 +119,10 @@ export default function App() {
       value: 25,
       label: (
         <Typography variant="body2">
-          <span className=" font-extrabold text-black">$25</span> <br />
+          <span className="font-bold text-base text-black">$25</span> <br />
           <span
             className={`  ${
-              windowWidth > 750 && "font-semibold ml-12"
+              windowWidth > 750 && "font-medium text-base ml-14"
             } text-[#939393] break-words`}
           >
             3900{" "}
@@ -136,10 +142,10 @@ export default function App() {
       value: 30,
       label: (
         <Typography variant="body2">
-          <span className=" font-extrabold text-black">$30</span> <br />
+          <span className="font-bold text-base text-black">$30</span> <br />
           <span
             className={`  ${
-              windowWidth > 750 && "font-semibold ml-12"
+              windowWidth > 750 && "font-medium text-base ml-14"
             } text-[#939393] break-words`}
           >
             5000{" "}
@@ -201,9 +207,8 @@ export default function App() {
           className="flex mb-3 items-center justify-center gap-4"
         >
           <Typography
-            variant="h6"
-            component="h1"
-            style={{ fontWeight: "550", whiteSpace: "nowrap" }}
+            component="p"
+            style={{ fontWeight: "600", fontSize: 24, whiteSpace: "nowrap" }}
           >
             Setup Auto Top-up
           </Typography>
@@ -214,6 +219,14 @@ export default function App() {
             onChange={handleSwitchChange}
           />
         </motion.div>
+        {/* When Auto Topup Disabled */}
+        {!autoTopUp && (
+          <Typography className="text-[#939393]">
+            Once the credit goes below the threshold value, credits can be auto
+            purchased. Setup auto top-up to enjoy uninterrupted services. You
+            can disable this anytime to stop auto top-up.
+          </Typography>
+        )}
         {/* Information about auto purchase */}
         <motion.div
           initial={{ y: autoTopUp ? 0 : -50, opacity: autoTopUp ? 1 : 0 }}
@@ -225,16 +238,15 @@ export default function App() {
             duration: autoTopUp ? 0.5 : 0.8, // Adjust duration based on button state
           }}
           style={{
-            display: "flex",
+            display: autoTopUp ? "flex" : "none",
             flexDirection: "column",
-            visibility: autoTopUp ? "visible" : "hidden",
           }}
         >
           <Typography className="text-[#939393]">
             Once the credit goes below a minimum thresholds
-            <span className="text-[#9847FF] font-bold"> 50</span>, we will
+            <span className="text-[#9747FF] font-bold"> 50</span>, we will
             auto-purchase{" "}
-            <span className="text-[#9847FF] font-bold">
+            <span className="text-[#9747FF] font-bold">
               {getCredit(sliderValue)}
             </span>{" "}
             credits and add them to your account.{" "}
@@ -266,16 +278,25 @@ export default function App() {
             variant="contained"
             style={{
               marginTop: "3rem",
-              backgroundColor: "#9F54FF",
+              backgroundColor: "#9747FF",
               textTransform: "none",
-              padding: 8,
-              width: "15rem",
-              fontWeight: "600",
+              padding: "12px",
+              width: "268px",
               fontSize: "0.85srem",
-              borderRadius: "0.5rem",
+              borderRadius: "8px",
+              gap: "10px",
             }}
           >
-            Confirm auto-purchase
+            <Typography
+              component="p"
+              style={{
+                fontWeight: "600",
+                fontSize: "16px",
+                lineHeight: "24px",
+              }}
+            >
+              Confirm auto-purchase
+            </Typography>
           </Button>
         </motion.div>
       </div>

@@ -5,12 +5,12 @@ import { alpha, styled } from "@mui/material/styles";
 // Define a custom styled slider component using Material-UI's styled API
 export const StyledSlider = styled(Slider)<SliderProps>(({ theme }) => ({
   height: 9, // Set the height of the slider
-  color: "#9F54FF", // Set the color of the slider
+  color: "#9747FF", // Set the color of the slider
   "& .MuiSlider-rail": {
     backgroundColor: "#E4E7EC", // Set the background color of the rail
   },
   "& .MuiSlider-thumb": {
-    border: "5.5px solid #9F54FF", // Set the border of the thumb
+    border: "5.5px solid #9747FF", // Set the border of the thumb
     color: "white", // Set the color of the thumb
     "&:hover, &.Mui-focusVisible": {
       // Apply styles on hover and focus

@@ -4,8 +4,8 @@ import Switch, { SwitchProps } from "@mui/material/Switch";
 
 // Define a custom styled switch component using Material-UI's styled API
 export const StyledSwitch = styled(Switch)<SwitchProps>(({ theme }) => ({
-  width: 34, // Set the width of the switch
-  height: 19, // Set the height of the switch
+  width: 36, // Set the width of the switch
+  height: 20, // Set the height of the switch
   padding: 0, // Set padding to zero
   "& .MuiSwitch-switchBase": {
     padding: 0, // Set padding to zero
@@ -47,8 +47,8 @@ export const StyledSwitch = styled(Switch)<SwitchProps>(({ theme }) => ({
   "& .MuiSwitch-thumb": {
     // Styles for the switch thumb
     boxSizing: "border-box", // Set box sizing
-    width: 15, // Set width of the thumb
-    height: 15, // Set height of the thumb
+    width: 16, // Set width of the thumb
+    height: 16, // Set height of the thumb
   },
   "& .MuiSwitch-track": {
     // Styles for the switch track
